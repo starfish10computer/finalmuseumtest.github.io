@@ -9,21 +9,6 @@
   <title>逃出博物時空</title>
   <script type="module" crossorigin src="./assets/index-41daed13.js"></script>
   <link rel="stylesheet" href="./assets/index-8fb46df7.css">
-    <style>
-    #panic-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.95);
-      z-index: 9999;
-      display: none;
-      cursor: pointer;
-      transition: opacity 0.3s;
-      transform: translateZ(0); /* Safari 渲染優化 */
-    }
-  </style>
 </head> 
 
 <body>
@@ -104,36 +89,7 @@
       </div>
     </div>
   </div>
-  <!-- 其他 body 內容保持不變 -->
-  <div id="panic-overlay"></div>
-
-  <script>
-    // 在 resize 函數後添加以下代碼
-    const overlay = document.getElementById('panic-overlay');
-    
-    // 顯示/隱藏方法
-    window.showPanicOverlay = () => {
-      overlay.style.display = 'block';
-      setTimeout(() => overlay.style.opacity = '1', 10);
-    };
-    window.hidePanicOverlay = () => {
-      overlay.style.opacity = '0';
-      setTimeout(() => overlay.style.display = 'none', 300);
-    };
-
-    // 點擊觸發緊急操作
-    overlay.addEventListener('click', () => {
-      window.location.href = 'https://example.com/exit'; // 替換為實際 URL
-    });
-
-    // 鍵盤快捷鍵示例 (Ctrl + Escape)
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && e.ctrlKey) {
-        showPanicOverlay();
-      }
-    });
-      </script>
-    
+  <div id="panic-overlay"> <!-- 紧急回避 --> </div>
   <div id="root"></div>
   <script>
     /**
@@ -187,11 +143,11 @@ const isIOSDevice = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
         mw2os = -mw2os;
         if (h * (9 / 16) >= w) {
           ebgTransform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomH2 * 1.75},${zoomH2 * 1.75})`;
-          transform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomH2},${zoomH2})translate(-50%, -50%)`;
+          transform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomH2},${zoomH2})`;
         }
         if (h * (9 / 16) < w) {
           ebgTransform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomW2 * 1.75},${zoomW2 * 1.75})`;
-          transform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomW2},${zoomW2})translate(-50%, -50%)`;
+          transform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomW2},${zoomW2})`;
         }
         /**
          * iOS 不强制旋转
@@ -207,7 +163,6 @@ const isIOSDevice = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
       for (const element of elements) {
         if (element) {
           element.style.transform = transform;
-           element.style.transformOrigin = 'center center';
         }
       }
     }
@@ -216,7 +171,7 @@ const isIOSDevice = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
       // 创建一个新的 meta 标签
       const meta = document.createElement('meta');
       meta.name = "viewport";
-      meta.content = "width=device-width, initial-scale=0.05, minimum-scale=0.01, maximum-scale=1, user-scalable=no";
+      meta.content = "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no";
       // 将该标签添加到 head 中
       document.getElementsByTagName('head')[0].appendChild(meta);
       resize();
@@ -235,7 +190,7 @@ const isIOSDevice = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
       // ios
       const meta = document.createElement('meta');
       meta.name = "viewport";
-      meta.content = "width=device-width, initial-scale=0.05, minimum-scale=0.01, maximum-scale=1, user-scalable=no";
+      meta.content = "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no";
       document.getElementsByTagName('head')[0].appendChild(meta);
       const style = document.createElement('style');
       style.type = 'text/css';
