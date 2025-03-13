@@ -187,11 +187,11 @@ const isIOSDevice = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
         mw2os = -mw2os;
         if (h * (9 / 16) >= w) {
           ebgTransform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomH2 * 1.75},${zoomH2 * 1.75})`;
-          transform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomH2},${zoomH2})`;
+          transform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomH2},${zoomH2})translate(-50%, -50%)`;
         }
         if (h * (9 / 16) < w) {
           ebgTransform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomW2 * 1.75},${zoomW2 * 1.75})`;
-          transform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomW2},${zoomW2})`;
+          transform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomW2},${zoomW2})translate(-50%, -50%)`;
         }
         /**
          * iOS 不强制旋转
@@ -207,6 +207,7 @@ const isIOSDevice = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
       for (const element of elements) {
         if (element) {
           element.style.transform = transform;
+           element.style.transformOrigin = 'center center';
         }
       }
     }
