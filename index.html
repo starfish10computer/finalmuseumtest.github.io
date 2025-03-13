@@ -167,7 +167,7 @@ const isIOSDevice = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
       // 创建一个新的 meta 标签
       const meta = document.createElement('meta');
       meta.name = "viewport";
-      meta.content = "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no";
+      meta.content = "width=device-width, initial-scale=0.22, minimum-scale=1, maximum-scale=1";
       // 将该标签添加到 head 中
       document.getElementsByTagName('head')[0].appendChild(meta);
       resize();
