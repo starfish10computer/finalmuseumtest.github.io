@@ -15,8 +15,8 @@
   <!--快速显示落地页，让用户感知不到加载的过程-->
   <div id="ebg"></div>
   <div id="Title_enter_page" onclick="enter()" style="
-            width: 100vw;
-            height: 100vh;
+            width: 2560px;
+            height: 1440px;
             overflow: hidden;
             position: absolute;
             top: 0;
@@ -154,7 +154,7 @@ const isIOSDevice = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
          */
         if (isIOSDevice) {
           const zoomWi = w / targetWidth;
-          transform = `translate(${-mw}px, ${-mh}px) scale(${zoomWi},${zoomWi})`
+  transform = `scale(${Math.min(zoomW, zoomH)})`;
         }
       }
       if (ebg) {
