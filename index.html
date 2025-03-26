@@ -5,7 +5,8 @@
   <link rel="icon" type="image/x-icon" href="./icons/favicon.ico" />
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
   <link rel="manifest" href="./manifest.json" />
-  <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+  <!--    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+-->
   <title>逃出博物時空</title>
   <script type="module" crossorigin src="./assets/index-41daed13.js"></script>
   <link rel="stylesheet" href="./assets/index-8fb46df7.css">
@@ -171,7 +172,7 @@ const isIOSDevice = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
       // 创建一个新的 meta 标签
       const meta = document.createElement('meta');
       meta.name = "viewport";
-      meta.content = "width=device-width, initial-scale=1, viewport-fit=cover";
+      meta.content = "width=device-width, initial-scale=0.15, viewport-fit=cover";
       // 将该标签添加到 head 中
       document.getElementsByTagName('head')[0].appendChild(meta);
       resize();
@@ -190,7 +191,7 @@ const isIOSDevice = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
       // ios
       const meta = document.createElement('meta');
       meta.name = "viewport";
-      meta.content = "width=device-width, initial-scale=1,viewport-fit=cover";
+      meta.content = "width=device-width, initial-scale=0.15,viewport-fit=cover";
       document.getElementsByTagName('head')[0].appendChild(meta);
       const style = document.createElement('style');
       style.type = 'text/css';
